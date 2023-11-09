@@ -1,0 +1,110 @@
+$PBExportHeader$d_vc_slip_data_cancel_mth_slip2.srd
+release 12.5;
+datawindow(units=0 color=1073741824 processing=0 print.canusedefaultprinter=yes print.margin.left=110 print.margin.right=110 print.margin.top=96 print.margin.bottom=96 )
+header(height=144 )
+detail(height=96 )
+summary(height=80 )
+footer(height=0 )
+table(column=(name=coop_id dbname="SLSLIPADJUST.COOP_ID" type=char(6) updatewhereclause=yes )
+column=(name=adjslip_no dbname="SLSLIPADJUST.ADJSLIP_NO" type=char(10) updatewhereclause=yes )
+column=(name=memcoop_id dbname="SLSLIPADJUST.MEMCOOP_ID" type=char(6) updatewhereclause=yes )
+column=(name=member_no dbname="SLSLIPADJUST.MEMBER_NO" type=char(8) updatewhereclause=yes )
+column=(name=adjslip_date dbname="SLSLIPADJUST.ADJSLIP_DATE" type=datetime updatewhereclause=yes )
+column=(name=adjtype_code dbname="SLSLIPADJUST.ADJTYPE_CODE" type=char(3) updatewhereclause=yes )
+column=(name=operate_date dbname="SLSLIPADJUST.OPERATE_DATE" type=datetime updatewhereclause=yes )
+column=(name=ref_recvperiod dbname="SLSLIPADJUST.REF_RECVPERIOD" type=char(6) updatewhereclause=yes )
+column=(name=ref_slipno dbname="SLSLIPADJUST.REF_SLIPNO" type=char(15) updatewhereclause=yes )
+column=(name=ref_slipdate dbname="SLSLIPADJUST.REF_SLIPDATE" type=datetime updatewhereclause=yes )
+column=(name=ref_slipamt dbname="SLSLIPADJUST.REF_SLIPAMT" type=decimal(2) updatewhereclause=yes )
+column=(name=ref_contno dbname="SLSLIPADJUST.REF_CONTNO" type=char(15) updatewhereclause=yes )
+column=(name=slip_amt dbname="SLSLIPADJUST.SLIP_AMT" type=decimal(2) updatewhereclause=yes )
+column=(name=slip_status dbname="SLSLIPADJUST.SLIP_STATUS" type=decimal(0) updatewhereclause=yes )
+column=(name=tofrom_accid dbname="SLSLIPADJUST.TOFROM_ACCID" type=char(15) updatewhereclause=yes )
+column=(name=system_code dbname="KPUCFKEEPITEMTYPE.SYSTEM_CODE" type=char(3) updatewhereclause=yes )
+column=(name=slipretcause_code dbname="SLSLIPADJUST.SLIPRETCAUSE_CODE" type=char(3) updatewhereclause=yes )
+column=(name=principal_adjamt dbname="SLSLIPADJUSTDET.PRINCIPAL_ADJAMT" type=decimal(2) updatewhereclause=yes )
+column=(name=interest_adjamt dbname="SLSLIPADJUSTDET.INTEREST_ADJAMT" type=decimal(2) updatewhereclause=yes )
+column=(name=intarrear_adjamt dbname="SLSLIPADJUSTDET.INTARREAR_ADJAMT" type=decimal(2) updatewhereclause=yes )
+column=(name=item_adjamt dbname="SLSLIPADJUSTDET.ITEM_ADJAMT" type=decimal(2) updatewhereclause=yes )
+column=(name=bfmthpay_kpitemtyp dbname="SLSLIPADJUSTDET.BFMTHPAY_KPITEMTYP" type=char(3) updatewhereclause=yes )
+column=(name=shrlontype_code dbname="SLSLIPADJUSTDET.SHRLONTYPE_CODE" type=char(2) updatewhereclause=yes )
+column=(name=bfcontlaw_status dbname="SLSLIPADJUSTDET.BFCONTLAW_STATUS" type=decimal(0) updatewhereclause=yes )
+retrieve="  SELECT ~"SLSLIPADJUST~".~"COOP_ID~",   
+         ~"SLSLIPADJUST~".~"ADJSLIP_NO~",   
+         ~"SLSLIPADJUST~".~"MEMCOOP_ID~",   
+         ~"SLSLIPADJUST~".~"MEMBER_NO~",   
+         ~"SLSLIPADJUST~".~"ADJSLIP_DATE~",   
+         ~"SLSLIPADJUST~".~"ADJTYPE_CODE~",   
+         ~"SLSLIPADJUST~".~"OPERATE_DATE~",   
+         ~"SLSLIPADJUST~".~"REF_RECVPERIOD~",   
+         ~"SLSLIPADJUST~".~"REF_SLIPNO~",   
+         ~"SLSLIPADJUST~".~"REF_SLIPDATE~",   
+         ~"SLSLIPADJUST~".~"REF_SLIPAMT~",   
+         ~"SLSLIPADJUST~".~"REF_CONTNO~",   
+         ~"SLSLIPADJUST~".~"SLIP_AMT~",   
+         ~"SLSLIPADJUST~".~"SLIP_STATUS~",   
+         ~"SLSLIPADJUST~".~"TOFROM_ACCID~",   
+         ~"KPUCFKEEPITEMTYPE~".~"SYSTEM_CODE~",   
+         ~"SLSLIPADJUST~".~"SLIPRETCAUSE_CODE~",   
+         ~"SLSLIPADJUSTDET~".~"PRINCIPAL_ADJAMT~",   
+         ~"SLSLIPADJUSTDET~".~"INTEREST_ADJAMT~",   
+         ~"SLSLIPADJUSTDET~".~"INTARREAR_ADJAMT~",   
+         ~"SLSLIPADJUSTDET~".~"ITEM_ADJAMT~",   
+         ~"SLSLIPADJUSTDET~".~"BFMTHPAY_KPITEMTYP~",   
+         ~"SLSLIPADJUSTDET~".~"SHRLONTYPE_CODE~",   
+         ~"SLSLIPADJUSTDET~".~"BFCONTLAW_STATUS~"  
+    FROM ~"SLSLIPADJUST~",   
+         ~"KPUCFKEEPITEMTYPE~",   
+         ~"SLSLIPADJUSTDET~"  
+   WHERE ( ~"KPUCFKEEPITEMTYPE~".~"COOP_ID~" = ~"SLSLIPADJUST~".~"MEMCOOP_ID~" ) and  
+         ( ~"SLSLIPADJUST~".~"ADJSLIP_NO~" = ~"SLSLIPADJUSTDET~".~"ADJSLIP_NO~" ) and  
+         ( ~"SLSLIPADJUST~".~"COOP_ID~" = ~"SLSLIPADJUSTDET~".~"COOP_ID~" ) and  
+         ( ~"SLSLIPADJUSTDET~".~"BFMTHPAY_KPITEMTYP~" = ~"KPUCFKEEPITEMTYPE~".~"KEEPITEMTYPE_CODE~" ) and  
+         ( ( ~"SLSLIPADJUST~".~"ADJSLIP_DATE~" = :adtm_date ) AND  
+         ( ~"SLSLIPADJUST~".~"MEMCOOP_ID~" = :as_coopid ) AND  
+         (~"SLSLIPADJUST~".~"POSTTOVC_FLAG~" = 0 OR  
+         ~"SLSLIPADJUST~".~"POSTTOVC_FLAG~" is null) AND  
+         ~"SLSLIPADJUST~".~"SLIP_STATUS~" = 1 AND  
+         ~"SLSLIPADJUST~".~"ADJTYPE_CODE~" = 'MTH' )    
+" arguments=(("adtm_date",datetime), ("as_coopid",string))
+)
+text(name=coop_id_t band=header x="5" y="4" height="64" width="201" alignment="2" border="0" text="Coop Id" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=adjslip_no_t band=header x="210" y="4" height="64" width="302" alignment="2" border="0" text="Adjslip No" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=memcoop_id_t band=header x="517" y="4" height="64" width="320" alignment="2" border="0" text="Memcoop Id" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=member_no_t band=header x="841" y="4" height="64" width="302" alignment="2" border="0" text="Member No" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=adjslip_date_t band=header x="1152" y="4" height="64" width="599" alignment="2" border="0" text="Adjslip Date" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=adjtype_code_t band=header x="1760" y="4" height="64" width="343" alignment="2" border="0" text="Adjtype Code" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=operate_date_t band=header x="2112" y="4" height="64" width="599" alignment="2" border="0" text="Operate Date" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=ref_recvperiod_t band=header x="2720" y="4" height="64" width="393" alignment="2" border="0" text="Ref Recvperiod" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=ref_slipno_t band=header x="3118" y="4" height="64" width="439" alignment="2" border="0" text="Ref Slipno" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=ref_slipdate_t band=header x="3561" y="4" height="64" width="603" alignment="2" border="0" text="Ref Slipdate" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=ref_slipamt_t band=header x="4169" y="4" height="64" width="329" alignment="2" border="0" text="Ref Slipamt" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=ref_contno_t band=header x="4503" y="4" height="64" width="439" alignment="2" border="0" text="Ref Contno" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=slip_amt_t band=header x="4946" y="4" height="64" width="329" alignment="2" border="0" text="Slip Amt" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+text(name=slip_status_t band=header x="5280" y="4" height="64" width="329" alignment="2" border="0" text="Slip Status" font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" )
+column(name=coop_id band=detail x="5" y="4" height="76" width="192" id=1 border="0" alignment="0" format="[general]" tabsequence=10 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=6 )
+column(name=adjslip_no band=detail x="210" y="4" height="76" width="320" id=2 border="0" alignment="0" format="[general]" tabsequence=20 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=10 )
+column(name=memcoop_id band=detail x="581" y="4" height="76" width="192" id=3 border="0" alignment="0" format="[general]" tabsequence=30 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=6 )
+column(name=member_no band=detail x="841" y="4" height="76" width="288" id=4 border="0" alignment="0" format="[general]" tabsequence=40 font.face="Tahoma" font.height="-10" background.color="65535" background.mode="2" edit.autohscroll=yes edit.limit=8 )
+column(name=adjslip_date band=detail x="1152" y="4" height="76" width="599" id=5 border="0" alignment="0" format="[shortdate] [time]" tabsequence=50 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes )
+column(name=adjtype_code band=detail x="1760" y="4" height="76" width="174" id=6 border="0" alignment="0" format="[general]" tabsequence=60 font.face="Tahoma" font.height="-10" background.color="65280" background.mode="2" edit.autohscroll=yes edit.limit=3 )
+column(name=operate_date band=detail x="2112" y="4" height="76" width="599" id=7 border="0" alignment="0" format="[shortdate] [time]" tabsequence=70 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes )
+column(name=ref_recvperiod band=detail x="2720" y="4" height="76" width="192" id=8 border="0" alignment="0" format="[general]" tabsequence=80 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=6 )
+column(name=ref_slipno band=detail x="3118" y="4" height="76" width="439" id=9 border="0" alignment="0" format="[general]" tabsequence=90 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=15 )
+column(name=ref_slipdate band=detail x="3561" y="4" height="76" width="603" id=10 border="0" alignment="0" format="[shortdate] [time]" tabsequence=100 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes )
+column(name=ref_slipamt band=detail x="4169" y="4" height="76" width="329" id=11 border="0" alignment="1" format="[general]" tabsequence=110 font.face="Tahoma" font.height="-10" background.color="65280" background.mode="2" edit.autohscroll=yes )
+column(name=ref_contno band=detail x="4503" y="4" height="76" width="439" id=12 border="0" alignment="0" format="[general]" tabsequence=120 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes edit.limit=15 )
+column(name=slip_amt band=detail x="4946" y="4" height="76" width="329" id=13 border="0" alignment="1" format="#,##0.00" tabsequence=130 font.face="Tahoma" font.height="-10" background.color="65535" background.mode="2" edit.autohscroll=yes )
+column(name=slip_status band=detail x="5280" y="4" height="76" width="329" id=14 border="0" alignment="1" format="[general]" tabsequence=140 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autohscroll=yes )
+column(name=tofrom_accid band=detail x="5627" y="0" height="76" width="439" id=15 border="0" alignment="0" format="[general]" tabsequence=240 font.face="Tahoma" font.height="-10" background.color="15780518" background.mode="2" edit.autohscroll=yes edit.limit=15 )
+column(name=system_code band=detail x="8183" y="8" height="64" width="146" id=16 border="0" alignment="0" format="[general]" tabsequence=310 font.face="Tahoma" font.height="-10" background.color="16711935" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=slipretcause_code band=detail x="6066" y="0" height="64" width="151" id=17 border="0" alignment="0" format="[general]" tabsequence=320 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autoselect=no edit.focusrectangle=no )
+column(name=principal_adjamt band=detail x="6222" y="0" height="64" width="434" id=18 border="0" alignment="1" format="#,##0.00" tabsequence=330 font.face="Tahoma" font.height="-10" background.color="65280" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=interest_adjamt band=detail x="6670" y="8" height="64" width="434" id=19 border="0" alignment="1" format="#,##0.00" tabsequence=340 font.face="Tahoma" font.height="-10" background.color="65535" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=intarrear_adjamt band=detail x="7154" y="8" height="64" width="434" id=20 border="0" alignment="1" format="#,##0.00" tabsequence=350 font.face="Tahoma" font.height="-10" background.color="16776960" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=item_adjamt band=detail x="7593" y="8" height="64" width="434" id=21 border="0" alignment="1" format="#,##0.00" tabsequence=360 font.face="Tahoma" font.height="-10" background.color="15780518" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=bfmthpay_kpitemtyp band=detail x="8037" y="4" height="64" width="128" id=22 border="0" alignment="0" format="[general]" tabsequence=370 font.face="Tahoma" font.height="-10" background.color="65280" background.mode="2" edit.autoselect=no edit.focusrectangle=no )
+column(name=shrlontype_code band=detail x="8384" y="0" height="64" width="165" id=23 border="0" alignment="0" format="[general]" tabsequence=380 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autoselect=no edit.focusrectangle=no )
+column(name=bfcontlaw_status band=detail x="8549" y="0" height="64" width="2135" id=24 border="0" alignment="0" format="[general]" tabsequence=390 font.face="Tahoma" font.height="-10" background.color="536870912" background.mode="1" edit.autoselect=no edit.focusrectangle=no )
+compute(name=compute_1 band=summary x="6181" y="8" height="64" width="549" format="[GENERAL]" expression="sum(  principal_adjamt ) " alignment="1" border="0" font.face="Tahoma" font.height="-10" background.color="65280" background.mode="2" )
+compute(name=compute_2 band=summary x="7611" y="0" height="64" width="357" format="[GENERAL]" expression=" sum(  item_adjamt ) " alignment="1" border="0" font.face="Tahoma" font.height="-10" background.color="15780518" background.mode="2" )

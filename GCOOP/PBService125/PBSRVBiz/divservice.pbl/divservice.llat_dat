@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryLatestActionTracking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileVersion>1</FileVersion>
+  <LayoutAdd>2014-06-28T12:05:39.2460744Z</LayoutAdd>
+  <LayoutModify>2014-06-28T12:05:39.2460744Z</LayoutModify>
+  <LayoutDelete>2014-06-28T12:05:39.2460744Z</LayoutDelete>
+  <ScriptableAdd>2015-08-21T05:20:56.1143372Z</ScriptableAdd>
+  <ScriptableModify>2020-11-07T06:11:30.1405019Z</ScriptableModify>
+  <ScriptableDelete>2014-06-28T12:05:39.2460744Z</ScriptableDelete>
+  <InternalResourceAdd>2019-11-01T02:33:18.594774Z</InternalResourceAdd>
+  <InternalResourceModify>2019-11-01T02:33:37.7979916Z</InternalResourceModify>
+  <InternalResourceDelete>2014-06-28T12:05:39.2460744Z</InternalResourceDelete>
+</LibraryLatestActionTracking>
